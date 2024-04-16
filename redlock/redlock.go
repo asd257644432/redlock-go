@@ -3,6 +3,7 @@ package redlock
 import (
 	"context"
 	crand "crypto/rand"
+	"crypto/tls"
 	"encoding/base64"
 	"errors"
 	"fmt"
@@ -110,6 +111,9 @@ func parseConnString(addr string) (*redis.Options, error) {
 				return nil, err
 			}
 			opts.WriteTimeout = time.Duration(timeout)
+		}
+		if k == "ssl" {
+			opts.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 		}
 	}
 
