@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/amyangfei/redlock-go/v3/redlock"
+	"github.com/asd257644432/redlock-go/v3/redlock"
 )
 
 const (
